@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test XLS Download</title>
     <script src="xlsx.full.min.js"></script>
+    <script src="verify.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,8 +42,20 @@
 
     <button onclick="generateXLS()">Download Test XLS File</button>
     <button onclick="generateXLSX()">Download Test XLSX File</button>
+    <button onclick="generateTestFile()">Generate Verification Test File</button>
 
     <div id="status"></div>
+    
+    <div class="info" style="margin-top: 30px;">
+        <h3>Verification</h3>
+        <p>Open the browser console (F12) to see verification results and run additional tests.</p>
+        <p>Available console commands:</p>
+        <ul>
+            <li><code>verifyExcelModification()</code> - Test the modification logic</li>
+            <li><code>generateTestFile()</code> - Generate a test file to download</li>
+            <li><code>checkExtensionAPIs()</code> - Check available Chrome APIs</li>
+        </ul>
+    </div>
 
     <script>
         function generateXLS() {
