@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Replace and Download XLS",
+  "version": "1.0",
+  "description": "Intercept XLS downloads, modify column U header, and re-download",
+  "permissions": [
+    "webRequest",
+    "downloads"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "Replace and Download XLS"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
