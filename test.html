@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test XLS Download</title>
+    <script src="xlsx.full.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .info {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test XLS Download Extension</h1>
+    
+    <div class="info">
+        <p><strong>Instructions:</strong></p>
+        <ol>
+            <li>Make sure the "Replace and Download XLS" extension is installed and enabled</li>
+            <li>Click one of the buttons below to generate and download a test Excel file</li>
+            <li>The extension should automatically intercept the download and add "1" to column U header</li>
+            <li>Check the downloaded file to verify the modification</li>
+        </ol>
+    </div>
+
+    <button onclick="generateXLS()">Download Test XLS File</button>
+    <button onclick="generateXLSX()">Download Test XLSX File</button>
+
+    <div id="status"></div>
+
+    <script>
+        function generateXLS() {
+            generateExcelFile('xls');
+        }
+
+        function generateXLSX() {
+            generateExcelFile('xlsx');
+        }
+
+        function generateExcelFile(format) {
+            // Create a new workbook
+            const wb = XLSX.utils.book_new();
+            
+            // Create data with headers up to column U (21st column)
+            const headers = [];
+            for (let i = 0; i < 21; i++) {
+                headers.push(String.fromCharCode(65 + i) + ' Header');
+            }
+            
+            // Create some sample data rows
+            const data = [headers];
+            for (let row = 0; row < 5; row++) {
+                const rowData = [];
+                for (let col = 0; col < 21; col++) {
+                    rowData.push(`Row ${row + 1} Col ${col + 1}`);
+                }
+                data.push(rowData);
+            }
+            
+            // Create worksheet from data
+            const ws = XLSX.utils.aoa_to_sheet(data);
+            
+            // Add worksheet to workbook
+            XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+            
+            // Write the file
+            const filename = `test_file.${format}`;
+            XLSX.writeFile(wb, filename);
+            
+            document.getElementById('status').innerHTML = 
+                `<p style="color: green;">Generated and downloading ${filename}. Check if column U header has "1" appended!</p>`;
+        }
+    </script>
+</body>
+</html>
