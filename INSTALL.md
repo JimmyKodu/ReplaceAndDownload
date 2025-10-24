@@ -12,9 +12,11 @@
 Clone or download this repository to your local machine:
 
 ```bash
-git clone https://github.com/JimmyKodu/ReplaceAndDownload.git
+git clone <repository-url>
 cd ReplaceAndDownload
 ```
+
+Or download and extract the ZIP file from the repository.
 
 ### 2. Open Chrome Extensions Page
 

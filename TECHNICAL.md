@@ -312,7 +312,7 @@ Currently no automated tests. To add:
 
 ### Setup
 ```bash
-git clone https://github.com/JimmyKodu/ReplaceAndDownload.git
+git clone <repository-url>
 cd ReplaceAndDownload
 npm install  # Install dependencies for development
 ```

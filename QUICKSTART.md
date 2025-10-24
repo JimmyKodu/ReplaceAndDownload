@@ -5,9 +5,12 @@ Get the ReplaceAndDownload extension running in 5 minutes!
 ## Step 1: Get the Code
 
 ```bash
-git clone https://github.com/JimmyKodu/ReplaceAndDownload.git
+# Clone the repository
+git clone <repository-url>
 cd ReplaceAndDownload
 ```
+
+Or download the ZIP and extract it.
 
 ## Step 2: Load Extension
 
